@@ -1,0 +1,45 @@
+{
+  "name": "b-k",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=14.18.0 || >= 16.0.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "skr dev",
+    "build": "skr build --clean",
+    "analyze": "npm run build -- --analyze --build-target=stable",
+    "lint": "skr lint",
+    "lint-staged": "skr lint --staged --fix --auto-stage",
+    "test": "skr test --target=react"
+  },
+  "dependencies": {
+    "core-js": "^3.29.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@reskript/cli": "5.7.4",
+    "@reskript/cli-build": "5.7.4",
+    "@reskript/cli-dev": "5.7.4",
+    "@reskript/cli-lint": "5.7.4",
+    "@reskript/cli-play": "5.7.4",
+    "@reskript/cli-test": "5.7.4",
+    "@reskript/config-lint": "5.7.4",
+    "@reskript/settings": "5.7.4",
+    "@types/react": "^18.0.29",
+    "@types/react-dom": "^18.0.11",
+    "eslint": "^8.36.0",
+    "husky": "4.x",
+    "stylelint": "^15.3.0",
+    "typescript": "^5.0.2",
+    "webpack": "^5.76.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  }
+}
