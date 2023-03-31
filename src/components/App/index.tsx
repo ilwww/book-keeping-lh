@@ -1,14 +1,53 @@
-const App = () => (
-    <div>
-        <h1>恭喜你跑起来了</h1>
-        <p>能看到这个页面，至少你已经能够启动系统，后面还需要清理一些TODO~</p>
-        <h2>检查项</h2>
-        <ul>
-            <li>确保<code>node</code>和<code>npm</code>都是最新版本。</li>
-            <li>搜索各处的<code>TODO</code>并相应修改。</li>
-            <li>阅读<a href="https://reskript.dev">reSKRipt的文档</a>了解更多配置和开发方式。</li>
-        </ul>
-    </div>
+import React from 'react';
+import {ConfigProvider} from 'antd';
+import {css, Global} from '@emotion/react';
+import {
+    createBrowserRouter,
+    createRoutesFromElements,
+    Route,
+    RouterProvider,
+} from 'react-router-dom';
+import Mine from '@/pages/Mine';
+import Find from '@/pages/Find';
+import Chart from '@/pages/Chart';
+import Detail from '@/pages/Detail';
+import {COLOR_PRIMARY} from '@/constant';
+import Layout from '../Layout';
+
+const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route path="/" element={<Layout />}>
+            <Route path="mine" element={<Mine />} />
+            <Route path="find" element={<Find />} />
+            <Route path="chart" element={<Chart />} />
+            <Route path="detail" element={<Detail />} />
+        </Route>
+    )
 );
 
-export default App;
+const globalStyle = css`
+    body {
+        margin: 0;
+        overflow: hidden;
+        min-height: 100vh;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    #app {
+        height: 100vh;
+    }
+`;
+
+export default function App() {
+    return (
+        <React.StrictMode>
+            <Global styles={globalStyle} />
+            <ConfigProvider theme={{token: {colorPrimary: COLOR_PRIMARY}}}>
+                <RouterProvider router={router} />
+            </ConfigProvider>
+        </React.StrictMode>
+    );
+}

@@ -16,9 +16,14 @@
     "test": "skr test --target=react"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "antd": "^5.3.2",
     "core-js": "^3.29.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
     "@reskript/cli": "5.7.4",

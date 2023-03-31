@@ -11,6 +11,7 @@ export default configure(
         // https://reskript.dev/docs/settings/build
         build: {
             appTitle: 'bK',
+            uses: ['lodash', 'emotion'],
         },
         // https://reskript.dev/docs/settings/dev-server
         devServer: {
